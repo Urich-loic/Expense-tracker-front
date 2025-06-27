@@ -1,22 +1,35 @@
-import { useEffect, useState } from "react";
 
-export default function Expenses(){
-    const [Expenses, setExpenses] = useState(null);
+import { AppContext } from "../Context/AppContext";
 
-    const getExpenses = async ()=>{
-        const res = await fetch("http://127.0.0.1:8000/api/expense");
-        const data = await res.json();
-        console.log(data);
-        setExpenses(Expenses);
-    }
+export default function Expenses() {
+  
+const {Expenses} = useContext(AppContext);
+  
 
-    
-    useEffect(()=>{getExpenses()},[]);
-
-    return <div>
-        <h1>My Expense liste</h1>
-        {Expenses.map((Expense)=>(
-            <ul>{Expense.id}</ul>
-        ))}
-    </div>;
+  return (
+    <div className="w-[80vw]">
+      <table class="border-collapse border border-gray-400 ...">
+        <thead>
+          <tr>
+            <th class="border border-gray-300 ...">State</th>
+            <th class="border border-gray-300 ...">City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-300 ...">Indiana</td>
+            <td class="border border-gray-300 ...">Indianapolis</td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 ...">Ohio</td>
+            <td class="border border-gray-300 ...">Columbus</td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 ...">Michigan</td>
+            <td class="border border-gray-300 ...">Detroit</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 }
