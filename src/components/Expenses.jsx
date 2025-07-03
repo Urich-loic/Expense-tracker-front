@@ -1,7 +1,7 @@
 export default function Expenses() {
   return (
     <>
-      <div className="rounded-2xl border-gray-400 border overflow-hidden">
+      <div className="rounded-2xl flex border-gray-400 border overflow-hidden">
         <div className="p-4">
           <div className=" border-gray-400 py-3">
             <small>Expenses</small>

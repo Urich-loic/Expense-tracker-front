@@ -5,6 +5,7 @@ import Expenses from "../components/Expenses";
 import SpendingByCategory from "../components/SepndingByCategory";
 import { useContext } from "react";
 import { AppContext } from "../Context/AppContext";
+import DataTableList from "../components/DataTableList";
 
 export default function Dashboard() {
   const { Expense } = useContext(AppContext);
@@ -36,26 +37,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="w-full rounded-2xl mt-5 overflow-hidden">
-            <table class="table-auto w-full p-7 border-0">
-              <thead className="bg-gray-300">
-                <tr className="p-5">
-                  <th class="border-b text-left text-gray-500 font-normal border-gray-300 p-3">Date</th>
-                  <th class="border-b text-left text-gray-500 font-normal border-gray-300 p-3">Description</th>
-                  <th class="border-b text-left text-gray-500 font-normal border-gray-300 p-3">Category</th>
-                  <th class="border-b text-left text-gray-500 font-normal border-gray-300 p-3">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Expense.map((exp) => (
-                  <tr className="px-3">
-                    <td class="border-b text-xs font-normal text-left border-gray-300 p-3">Indiana</td>
-                    <td class="border-b text-xs font-normal text-left border-gray-300 p-3">{exp.description}</td>
-                    <td class="border-b text-xs font-normal text-left border-gray-300 p-3">{exp.category_id}</td>
-                    <td class="border-b text-xs font-normal text-left border-gray-300 p-3">{exp.amount}Fcfa</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <DataTableList Expense={Expense} />
           </div>
         </div>
       </div>
